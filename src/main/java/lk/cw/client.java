@@ -34,6 +34,7 @@ public class client {
             String serverResponse = in.readUTF();
             System.out.println("Server: " + serverResponse);
 
+
             socket.close();
         }
         catch (IOException e) {
