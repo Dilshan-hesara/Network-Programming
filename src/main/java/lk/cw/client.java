@@ -32,7 +32,7 @@ public class client {
             //get sever msg
             DataInputStream in = new DataInputStream(socket.getInputStream());
             String serverResponse = in.readUTF();
-            System.out.println("Server: " + serverResponse);
+            System.out.println("Server Msg:" + serverResponse);
 
 
             socket.close();

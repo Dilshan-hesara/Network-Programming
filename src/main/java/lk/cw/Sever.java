@@ -24,11 +24,11 @@ public class Sever {
             //get client msg
             DataInputStream in = new DataInputStream(socket.getInputStream());
             String clMsg = in.readUTF();
-            System.out.println("Client: " + clMsg);
+            System.out.println("Client msg : " + clMsg);
 
             // Send client msg
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            System.out.print("Enter Server Response: ");
+            System.out.print("Enter msg s : ");
             String response = sc.nextLine();
             out.writeUTF(response);
             out.flush();
