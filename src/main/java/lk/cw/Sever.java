@@ -27,7 +27,6 @@ public class Sever {
 
             socket.close();
 
-
         } catch (IOException e) {
             throw new RuntimeException();
 
