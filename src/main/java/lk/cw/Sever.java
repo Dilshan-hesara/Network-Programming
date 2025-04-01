@@ -1,6 +1,5 @@
 package lk.cw;
 
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,8 +9,6 @@ import java.util.Scanner;
 
 public class Sever {
     public static void main(String[] args) {
-        System.out.println("sever connected");
-
         System.out.println("Server started...");
         Scanner sc = new Scanner(System.in);
 
@@ -20,26 +17,26 @@ public class Sever {
             Socket socket = serverSocket.accept();
             System.out.println("Client connected...");
 
-
-            //get client msg
             DataInputStream in = new DataInputStream(socket.getInputStream());
-            String clMsg = in.readUTF();
-            System.out.println("Client msg : " + clMsg);
-
-            // Send client msg
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            System.out.print("Enter msg s : ");
-            String response = sc.nextLine();
-            out.writeUTF(response);
-            out.flush();
 
-            socket.close();
-            serverSocket.close();
+            while (true) {
+                // get client msg
+                String clMsg = in.readUTF();
+                System.out.println("Client msg: " + clMsg);
+
+
+                // Send msg client
+                System.out.print("Enter msg s: ");
+                String response = sc.nextLine();
+                out.writeUTF(response);
+                out.flush();
+            }
+
+
 
         } catch (IOException e) {
-            throw new RuntimeException();
-
+            e.printStackTrace();
         }
-
     }
 }
